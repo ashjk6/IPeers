@@ -21,17 +21,11 @@
     gap: 1rem;
   }
   header img.logo {
-    height: 200px;
-    width: 200;
+    height: 80px; /* bigger logo */
+    width: auto;
     filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
   }
-  header h1 {
-    margin: 0;
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: #caf0f8;
-    flex-grow: 1;
-  }
+  /* Removed header h1 styling since no IPeers text */
   header p {
     font-size: 1.1rem;
     color: #caf0f8;
@@ -99,10 +93,6 @@
       padding: 1rem;
       gap: 0.5rem;
     }
-    header h1 {
-      font-size: 2rem;
-      flex-grow: 0;
-    }
     button#downloadBtn {
       width: 100%;
       padding: 1rem;
@@ -114,7 +104,6 @@
 
 <header>
   <img src="logo.jpg" alt="IPeers Logo" class="logo" />
-  <h1>IPeers</h1>
   <p>Easy-to-use Python program for fast, modern, and reliable peer networking</p>
 </header>
 
@@ -135,7 +124,13 @@
       <li>Uses fast, modern TCP-based networking protocols</li>
       <li>Lightweight and portable</li>
       <li>Designed for reliability and speed</li>
+      <li><strong>Privacy Assurance:</strong> All your messages and conversations stay private and are not sent to any third parties, including governments or external services, as long as you don't use any forwarding or relay services.</li>
     </ul>
+  </section>
+
+  <section>
+    <h2>Future Plans</h2>
+    <p>We plan to add TLS or SSL encryption for secure communication, making your data even safer while connected. We aim to implement these security features soon, if possible together, to keep your communications private and protected.</p>
   </section>
 
   <section class="download-section">
@@ -157,11 +152,10 @@
     // Real detection of Python on client machine via browser is impossible,
     // so we check if navigator.platform or userAgent contains python or common Python IDE info (very rough).
     // Better to show instructions instead.
-    return false; // For security reasons browsers can't detect local software reliably.
+    return false; // Browsers can't detect local software reliably.
   }
 
   downloadBtn.addEventListener('click', () => {
-    // We can't really check Python install in browser, so show a warning:
     notice.textContent = 'Checking Python installation...';
 
     setTimeout(() => {
