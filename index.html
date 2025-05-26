@@ -21,11 +21,10 @@
     gap: 1rem;
   }
   header img.logo {
-    height: 200px; /* bigger logo */
-    width: 200;
+    height: 220px;
+    width: 220;
     filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
   }
-  /* Removed header h1 styling since no IPeers text */
   header p {
     font-size: 1.1rem;
     color: #caf0f8;
@@ -148,27 +147,7 @@
   const downloadBtn = document.getElementById('downloadBtn');
   const notice = document.getElementById('notice');
 
-  function isPythonInstalled() {
-    // Real detection of Python on client machine via browser is impossible,
-    // so we check if navigator.platform or userAgent contains python or common Python IDE info (very rough).
-    // Better to show instructions instead.
-    return false; // Browsers can't detect local software reliably.
-  }
-
   downloadBtn.addEventListener('click', () => {
-    notice.textContent = 'Checking Python installation...';
-
-    setTimeout(() => {
-      if (isPythonInstalled()) {
-        notice.textContent = 'Python detected! Starting download...';
-        startDownload();
-      } else {
-        notice.innerHTML = '⚠️ Python is required to run IPeers. Please <a href="https://www.python.org/downloads/" target="_blank" style="color:#90e0ef;">install Python</a> first, then download again.';
-      }
-    }, 1500);
-  });
-
-  function startDownload() {
     const link = document.createElement('a');
     link.href = 'ipeers.zip';
     link.download = 'ipeers.zip';
@@ -177,7 +156,7 @@
     document.body.removeChild(link);
 
     notice.textContent = 'Download started! After downloading, extract ipeers.zip and run the Python program.';
-  }
+  });
 </script>
 
 </body>
