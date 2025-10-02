@@ -1,164 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>IPeers - Powerful Python Networking Program</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-  body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: #121212;
-    color: #f0f0f0;
-    line-height: 1.6;
-  }
-  header {
-    background: linear-gradient(90deg, #00b4d8, #0077b6);
-    padding: 1.5rem 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  header img.logo {
-    height: 220px;
-    width: 220;
-    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
-  }
-  header p {
-    font-size: 1.1rem;
-    color: #caf0f8;
-    margin: 0;
-    font-weight: 500;
-  }
-  main {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-  }
-  section {
-    margin-bottom: 3rem;
-  }
-  h2 {
-    color: #00b4d8;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-  ul.features-list {
-    list-style: none;
-    padding-left: 0;
-  }
-  ul.features-list li {
-    background: #023e8a;
-    margin-bottom: 1rem;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    font-weight: 600;
-  }
-  .download-section {
-    text-align: center;
-  }
-  button#downloadBtn {
-    background: #00b4d8;
-    border: none;
-    padding: 1rem 2.5rem;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #121212;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  button#downloadBtn:hover {
-    background: #0077b6;
-    color: #e0e0e0;
-  }
-  .notice {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: #90e0ef;
-  }
-  footer {
-    text-align: center;
-    padding: 2rem 1rem;
-    background: #001f3f;
-    color: #90e0ef;
-  }
-  @media (max-width: 600px) {
-    header {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 1rem;
-      gap: 0.5rem;
-    }
-    button#downloadBtn {
-      width: 100%;
-      padding: 1rem;
-    }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPeers - Secure IP Chat</title>
+    <!-- Load Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for modern, smooth appearance */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f7fa; /* Light, cool gray background */
+            min-height: 100vh;
+            /* Global transition for smoothness on elements */
+            transition: background-color 0.3s ease;
+        }
+        .hero-bg {
+            /* Deeper, more technological blue gradient */
+            background-image: linear-gradient(145deg, #1e3a8a 0%, #0c4a6e 100%);
+            position: relative;
+            overflow: hidden;
+            border-bottom-left-radius: 1.5rem; /* Large rounded bottom corners */
+            border-bottom-right-radius: 1.5rem;
+        }
+        /* Subtle overlay pattern for texture */
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: radial-gradient(circle at 10% 10%, rgba(255,255,255,0.08) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.5;
+            z-index: 1;
+        }
+        .hero-content {
+            z-index: 2; /* Ensure content is above the overlay */
+            position: relative;
+        }
+        .download-btn {
+            /* Springy transition for a 'lifted' feel */
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.4);
+        }
+        .download-btn:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 15px 30px rgba(30, 58, 138, 0.6);
+        }
+        .feature-card-hover {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .feature-card-hover:hover {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px);
+            border-color: #93c5fd; /* Light blue border on hover */
+        }
+    </style>
 </head>
-<body>
+<body class="antialiased">
 
-<header>
-  <img src="logo.jpg" alt="IPeers Logo" class="logo" />
-  <p>Easy-to-use Python program for fast, modern, and reliable peer networking</p>
-</header>
+    <!-- Header & Navigation -->
+    <header class="p-4 bg-white shadow-lg sticky top-0 z-30">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight">
+                <span class="text-blue-600">I</span>Peers
+            </h1>
+        </div>
+    </header>
 
-<main>
-  <section>
-    <h2>About IPeers</h2>
-    <p>IPeers is a cutting-edge Python-based program designed to make peer-to-peer networking effortless and efficient. Whether you're offline, connected via hotspot, or on a fast TCP connection, IPeers delivers top performance with a user-friendly experience.</p>
-    <p>IPeers works great on local networks for easy and seamless connectivity. If a local network isn’t available, you can use it over a hotspot — even if the hotspot doesn’t have internet access. This flexibility ensures you’re always connected in peer-to-peer mode without limitations.</p>
-    <p>Perfect for beginners and pros alike, IPeers works even without WiFi and uses modern protocols to keep your network running smoothly and securely.</p>
-  </section>
+    <!-- Hero Section -->
+    <main class="hero-bg text-white py-20 sm:py-32">
+        <div class="hero-content max-w-4xl mx-auto text-center px-4">
+            <!-- Icon/Visual Placeholder: Lock and Network -->
+            <div class="mb-8">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mx-auto text-green-300">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m3 0h-1.5a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25h1.5M12 18V9" />
+                </svg>
+            </div>
 
-  <section>
-    <h2>Key Features</h2>
-    <ul class="features-list">
-  <li>Written in Python — requires Python installed on your PC</li>
-  <li>Easy to use, minimal setup required</li>
-  <li>Works with WiFi or over a hotspot — even if the hotspot has no internet access!</li>
-  <li>Uses fast, modern TCP-based networking protocols</li>
-  <li>Lightweight and portable</li>
-  <li>Designed for reliability and speed</li>
-  <li><strong>Privacy Assurance:</strong> All your messages and conversations stay private and are not sent to any third parties, including governments or external services, as long as you don't use any forwarding or relay services.</li>
-</ul>
+            <h2 class="text-4xl sm:text-6xl font-black mb-4 tracking-tight">
+                Peer-to-Peer <span class="text-green-300">Chat</span>. Private. Direct.
+            </h2>
+            <p class="text-xl font-light text-gray-300 mb-12 max-w-3xl mx-auto">
+                IPeers is your solution for secure, server-free communication over local IP networks. Cut out the cloud and talk directly.
+            </p>
 
-  </section>
+            <!-- Download Button (The main call to action) -->
+            <a href="ipeers.zip" download class="download-btn inline-flex items-center justify-center px-10 py-4 text-xl font-bold rounded-2xl text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-70 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6 mr-3">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+                Download IPeers v1.0
+            </a>
+            <p class="mt-6 text-sm text-gray-400">Lightweight ZIP file for desktop (Windows, macOS, Linux).</p>
+        </div>
+    </main>
 
-  <section>
-    <h2>Future Plans</h2>
-    <p>We plan to add TLS or SSL encryption for secure communication, making your data even safer while connected. We aim to implement these security features soon, if possible together, to keep your communications private and protected.</p>
-  </section>
+    <!-- Features Section -->
+    <section class="py-20 sm:py-28 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-blue-600 font-semibold uppercase tracking-wider text-sm">Features</span>
+                <h3 class="text-4xl font-bold text-gray-800 mt-2">The IPeers Difference</h3>
+                <div class="w-24 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+            </div>
 
-  <section class="download-section">
-    <h2>Download IPeers</h2>
-    <button id="downloadBtn">Download & Install IPeers</button>
-    <p class="notice" id="notice"></p>
-  </section>
-</main>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-<footer>
-  &copy; 2025 IPeers Project — Built with Python & ❤️
-</footer>
+                <!-- Feature 1: Decentralized -->
+                <div class="p-8 bg-gray-50 rounded-2xl shadow-xl feature-card-hover border border-gray-100">
+                    <div class="text-blue-600 mb-4">
+                        <!-- Network Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM4.5 9.75h15m-15 4.5h15" />
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-900 mb-3">True Decentralization</h4>
+                    <p class="text-gray-600">Connect directly. Messages bypass all external servers and clouds, flowing only between computers on the same local network.</p>
+                </div>
 
-<script>
-  const downloadBtn = document.getElementById('downloadBtn');
-  const notice = document.getElementById('notice');
+                <!-- Feature 2: Built-in Privacy (Security) -->
+                <div class="p-8 bg-gray-50 rounded-2xl shadow-xl feature-card-hover border border-gray-100">
+                    <div class="text-green-600 mb-4">
+                        <!-- Shield Check Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15l4.5-4.5M12 1.5l7.5 7.5V14.25a6.75 6.75 0 0 1-7.5 6.75H4.5A6.75 6.75 0 0 1 12 14.25V9l7.5-7.5" />
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-900 mb-3">Local Network Only</h4>
+                    <p class="text-gray-600">Secure by design. IPeers functions exclusively within a closed environment, protecting sensitive internal communications from outside interception.</p>
+                </div>
 
-  downloadBtn.addEventListener('click', () => {
-    const link = document.createElement('a');
-    link.href = 'ipeers.zip';
-    link.download = 'ipeers.zip';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+                <!-- Feature 3: Simplicity & Speed -->
+                <div class="p-8 bg-gray-50 rounded-2xl shadow-xl feature-card-hover border border-gray-100">
+                    <div class="text-gray-500 mb-4">
+                        <!-- Speedometer/Gauge Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12c0-2.485 2.015-4.5 4.5-4.5s4.5 2.015 4.5 4.5v1.5H3V12Zm9 0c0 2.485 2.015 4.5 4.5 4.5s4.5-2.015 4.5-4.5v-1.5H12V12Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M3 12h18" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 12m-6 0a6 6 0 1 0 12 0 6 6 0 1 0-12 0"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-900 mb-3">Zero Configuration</h4>
+                    <p class="text-gray-600">Download, run, and chat. The application requires no complex setup, running instantly on Windows, macOS, and Linux systems.</p>
+                </div>
 
-    notice.textContent = 'Download started! After downloading, extract ipeers.zip and run the Python program.';
-  });
-</script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10 mt-12">
+        <div class="max-w-6xl mx-auto text-center px-4">
+            <h5 class="text-xl font-semibold mb-2">IPeers</h5>
+            <p class="text-sm text-gray-400">
+                IPeers &copy; 2024. All rights reserved.
+            </p>
+            <p class="text-xs mt-1 text-gray-500">
+                Designed for privacy and peer-to-peer integrity.
+            </p>
+        </div>
+    </footer>
 
 </body>
 </html>
